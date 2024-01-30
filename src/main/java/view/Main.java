@@ -1,19 +1,42 @@
 package view;
 
+import mapping.dtos.ProfessorDTO;
+import mapping.mappers.ProfessorMapper;
 import model.*;
 import services.PersonService;
 import services.impl.PersonServiceImpl;
 
 import javax.swing.*;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+
+        Person person = new Person("monica",  "identity");
+        //guardare un stream en el archivo person.txt, esta clase permite guardar aqui un objeto serializable
+        FileOutputStream file= new FileOutputStream("person.txt");
+        //
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(file);
+        objectOutputStream.writeObject(person);
+        //hay que cerrar el stream
+        objectOutputStream.close();
+
+        FileInputStream fileInputStream = new FileInputStream("person.txt");
+        ObjectInputStream  objectInputStream = new ObjectInputStream(fileInputStream);
+        Person personFromFile = (Person) objectInputStream.readObject();
+
+        System.out.println(personFromFile.toString());
+
+        ProfessorDTO professorDTO = new ProfessorDTO("monica",Category.AUXILIAR);
+
+        System.out.println(ProfessorMapper.mapFrom(professorDTO).toString());
 
 
+        /*
         Course course = new Course();
         course.setName("Ingenieria de Software");
         List<Person> people = new ArrayList<Person>();
@@ -28,7 +51,7 @@ public class Main {
         service.addProfessor(new Professor("Andrea","3",Category.AUXILIAR));
 
         JOptionPane.showMessageDialog(null,course.getPeople().get(0).getName());
-
+*/
 
       /*  Asignature asignature = new Asignature();
         asignature.setName("Programacion 2");

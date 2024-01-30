@@ -8,6 +8,13 @@ public class Professor extends Person{
         this.category = category;
     }
 
+    @Override
+    public String toString() {
+        return "Professor{" +
+                "category=" + category +
+                '}';
+    }
+
     public Category getCategory() {
         return category;
     }
