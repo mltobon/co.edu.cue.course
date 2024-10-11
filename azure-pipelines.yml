@@ -22,7 +22,7 @@ steps:
     goals: 'package'
 - task: NexusIqPipelineTask@2
   inputs:
-    nexusIqService: 'latest'
+    nexusIqService: 'nexus'
     organizationId: 'root-test'
     applicationId: 'apptest'
     stage: 'Build'
