@@ -24,5 +24,5 @@ steps:
   inputs:
     nexusIqService: 'latest'
     organizationId: 'root-test'
-    applicationId: 'aptest'
+    applicationId: 'apptest'
     stage: 'Build'
