@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: Monicas-MacBook-Pro
+  Monicas-MacBook-Pro
 
 steps:
 - task: Maven@3
