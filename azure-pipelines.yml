@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  Monicas-MacBook-Pro
+  Default
 
 steps:
 - task: Maven@3
